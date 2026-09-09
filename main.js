@@ -252,3 +252,17 @@ function  menu() {
 menu();
 
 
+function affichage_trajets (){
+    console.log(`    ===TRAJETS DISPONIBLES===`)
+    for(let i = 0; i < trips.length; i++){
+        console.log(`
+            #${trips[i].id} ${trips[i].departure} --> ${trips[i].destination}
+            Depart: ${trips[i].departureTime}
+            Arrivee: ${trips[i].arrivalTime}
+            Prix: ${trips[i].price}
+            Places disponibles: ${trips[i].availableSeats}
+            `)
+    }
+};
+
+

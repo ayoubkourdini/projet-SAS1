@@ -182,3 +182,73 @@ const trips = [
     }
 ];
 
+let ticketsId = 1;
+const tickets = [];
+
+function  menu() {
+    let choix;
+    while (choix !== 0) {
+        console.log(`    
+        1. Afficher les trajets
+        2. Acheter un ticket
+        3. Afficher les tickets
+        4. Annuler un ticket
+        5. Rechercher un ticket
+        6. Filtrer les trajets
+        7. Trier les trajets
+        8. Nombre total de tickets
+        9. Chiffre d'affaires
+        0. Quitter
+        `);
+    choix = Number(prompt("Votre choix : "));
+
+        switch (choix) {
+        case 1:
+            affichage_trajets();
+            break;
+
+        case 2:
+            acheter_ticket(); 
+            break;  
+
+        case 3:
+            affichage_tickets();
+            break;
+
+        case 4:
+            annulation_ticket();
+            break;
+
+        case 5:
+            recherche_ticket();
+            break;
+             
+        case 6:
+            filter_trajets();
+            break;
+            
+        case 7:
+            trier_trajets();
+            break;
+            
+        case 8:
+            total_tickets();
+            break;
+        
+        case 9:
+            Chiffre_daffaires();
+            break;   
+
+        case 0:
+            console.log(`au revoir.`);
+            break;
+
+        default:
+            console.log(`choix invalide.`)
+            break;
+        }
+    } 
+};
+menu();
+
+

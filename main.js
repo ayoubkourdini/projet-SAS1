@@ -337,3 +337,22 @@ function affichage_tickets (){
 }
 
 
+function annulation_ticket (){
+    let searchId = Number(prompt(`Entrer l'identifiant du ticket: `));
+    for(let i = 0; i < tickets.length; i++){
+        if(tickets[i].id === searchId){
+            let tripId = tickets[i].tripId;
+            for(let j = 0; j < trips.length; j++){
+                if(trips[j].id === tripId){
+                    trips[j].availableSeats = trips[j].availableSeats + 1;
+                }
+            }
+            tickets.splice(i, 1);
+            console.log(`Ticket annulé avec succès.`)
+            return;
+        }
+    }
+    console.log(`Ticket introuvable.`)
+
+};
+

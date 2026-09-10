@@ -317,3 +317,23 @@ function acheter_ticket (){
 };
 
 
+function affichage_tickets (){
+    if(tickets.length === 0){
+        console.log(`Aucun ticket enregistré`);
+        return;
+    }
+    console.log(`     === TICKETS ===`)
+
+    for(let i = 0; i < tickets.length; i++){
+        let trajet = trips[tickets[i].tripId - 1]
+        console.log(`
+            Ticket #${tickets[i].id}
+            Passager : ${tickets[i].passengerName}
+            Trajet : ${trajet.departure} → ${trajet.destination}
+            Place : ${tickets[i].seatNumber}
+            Prix : ${tickets[i].price}
+        `);
+    }   
+}
+
+

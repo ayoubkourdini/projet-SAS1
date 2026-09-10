@@ -266,3 +266,54 @@ function affichage_trajets (){
 };
 
 
+function acheter_ticket (){
+    let nom_passager = prompt(`Nom de passager: `);
+    let id_trajet = Number(prompt(`Identifiant du trajet: `));
+    
+    for(let i = 0; i < trips.length; i++){
+        if(trips[i].id === id_trajet){
+            if(trips[i].availableSeats > 0 ){
+                let passengerSeat = 1;
+                while (passengerSeat <= 50) {
+                let placeOccupee = false;
+                for (let j = 0; j < tickets.length; j++) {
+                    if (
+                        tickets[j].tripId === id_trajet &&
+                        tickets[j].seatNumber === passengerSeat
+                    ) {
+                        placeOccupee = true;
+                        break;
+                    }
+                }
+                if (placeOccupee === false) {
+                    break;
+                }
+                passengerSeat++;
+            }
+                let ticket = {
+                    id: ticketsId,
+                    passengerName: nom_passager,
+                    tripId: id_trajet,
+                    seatNumber: passengerSeat,
+                    price: trips[i].price
+                }
+                tickets.push(ticket);
+                ticketsId++;
+                trips[i].availableSeats = trips[i].availableSeats - 1;
+                
+                    console.log(`
+                        Ticket acheté avec succès.
+                        `)
+                return;
+            } else {
+                console.log(`Train complet.`);
+            }
+        }
+        
+    }
+    console.log(`Trajet introuvable.`);
+
+
+};
+
+

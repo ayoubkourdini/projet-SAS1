@@ -409,3 +409,12 @@ function trier_trajets() {
     }
 }
 
+function total_tickets(){
+    if(tickets.length > 0){
+        console.log(`Nombre total de tickets : ${tickets.length}`);
+    } else {
+        console.log(`Nombre total de tickets : 0`);
+    };
+};
+
+

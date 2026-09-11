@@ -356,3 +356,23 @@ function annulation_ticket (){
 
 };
 
+function recherche_ticket (){
+    let nameSearche = prompt(`enter le nom de passager: `);
+    let found = false;
+    for(let i = 0; i < tickets.length; i++){
+        if(nameSearche.toLocaleLowerCase() === tickets[i].passengerName.toLocaleLowerCase()){
+            console.log(`
+                Ticket #${tickets[i].id}
+                Passager : ${tickets[i].passengerName}
+                Trajet : ${trips[i].departure} → ${trips[i].destination}
+                Place : ${tickets[i].seatNumber}
+                Prix : ${tickets[i].price}
+            `);
+            found = true;
+        };
+    };
+    if(found == false){
+        console.log(`Il n'existe aucun billet portant ce nom.`)
+    };
+};
+

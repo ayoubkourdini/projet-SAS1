@@ -418,3 +418,17 @@ function total_tickets(){
 };
 
 
+function Chiffre_daffaires () {
+    let sommePrix = 0;
+    for(let i = 0; i < tickets.length; i++) {
+        sommePrix = sommePrix + tickets[i].price
+    }
+    if(sommePrix > 0){
+        console.log(`Chiffre d'affaires total : ${sommePrix} DH`)
+    } else {
+        console.log(`Chiffre d'affaires total : 0`)
+    }
+};
+
+
+

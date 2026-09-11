@@ -376,3 +376,19 @@ function recherche_ticket (){
     };
 };
 
+function filter_trajets (){
+    let villeNom = prompt(`saisissez le nom de ville: `);
+    let villeExi = false;
+    for(let i = 0; i < trips.length; i++){                              
+        if(villeNom.toLocaleLowerCase() === trips[i].departure.toLocaleLowerCase()){
+            villeExi = true;
+            console.log(`
+                ${trips[i].departure} → ${trips[i].destination} : ${trips[i].price} DH.
+                `);
+        };
+    };
+    if(villeExi === false){
+        console.log(`Il n'ya pas de vols au depart de cette ville.`)
+    }; 
+};
+
